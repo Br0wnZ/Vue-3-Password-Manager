@@ -11,6 +11,8 @@
 </template>
 
 <style lang="scss">
+@import '../global.scss';
+
 .route-enter-active,
 .route-leave-active,
 .layout-enter-active,

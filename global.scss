@@ -1,0 +1,16 @@
+.n-tabs .n-tabs-rail .n-tabs-tab-wrapper .n-tabs-tab.n-tabs-tab--active {
+  background-color: #3b3d40;
+  color: white;
+  &:hover {
+    transform: scale(1.01)
+  }
+}
+
+.n-tabs .n-tabs-rail .n-tabs-tab-wrapper .n-tabs-tab {
+    background-color: #a1a5ac;
+    color: white;
+    &:hover {
+      transform: scale(1.01)
+    }
+  
+}
