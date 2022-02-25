@@ -1,14 +1,10 @@
 <template>
   <TheNavbar />
-  <div class="container">
-    <TheTabs />
-    <slot />
-  </div>
+  <slot />
 </template>
 
 <script setup lang="ts">
 import TheNavbar from '@/components/TheNavbar.vue'
-import TheTabs from '@/components/TheTabs.vue'
 
 </script>
 
