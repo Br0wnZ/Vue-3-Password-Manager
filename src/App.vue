@@ -1,30 +1,27 @@
 <template>
-  <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </div>
-  <router-view />
+  <transition name="layout" mode="out-in">
+    <component :is="$route.meta.layout || 'default'">
+      <router-view v-slot="{ Component }">
+        <transition name="route" mode="out-in">
+          <component :is="Component" />
+        </transition>
+      </router-view>
+    </component>
+  </transition>
 </template>
 
 <style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+.route-enter-active,
+.route-leave-active,
+.layout-enter-active,
+.layout-leave-active {
+  transition: opacity 0.1s ease;
 }
 
-#nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
+.route-enter-from,
+.route-leave-to,
+.layout-enter-from,
+.layout-leave-to {
+  opacity: 0;
 }
 </style>
