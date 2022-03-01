@@ -1,5 +1,8 @@
+$background-color: #ededed2e;
+$font-color: white;
+
 body {
-  background-color: #ededed2e;
+  background-color: $background-color;
 }
 
 .n-tabs .n-tabs-rail .n-tabs-tab-wrapper .n-tabs-tab.n-tabs-tab--active {
@@ -12,16 +15,29 @@ body {
 
 .n-tabs .n-tabs-rail .n-tabs-tab-wrapper .n-tabs-tab {
   background-color: #a1a5ac;
-  color: white;
+  color: $font-color;
   &:hover {
     transform: scale(1.01);
   }
 }
 
-.n-card {
+#password-card > .n-card {
   box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 
   &:hover {
     transform: scale(1.01);
   }
+}
+
+.n-card.n-modal {
+  background-color: #2c2c32;
+  color: $font-color;
+}
+
+.n-card-header .n-card-header__main {
+  color: $font-color;
+}
+
+.n-card--content-soft-segmented > .n-card-header > .n-card-header__main {
+  color: $font-color;
 }
