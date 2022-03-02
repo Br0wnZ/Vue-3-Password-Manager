@@ -13,9 +13,9 @@
       Content
       <!-- <template #footer>Footer</template> -->
     </n-modal>
-    <n-grid cols="2 s:3 m:4 l:5 xl:6 2xl:7" responsive="screen">
+    <n-grid cols="2 s:3 m:4 l:5 xl:2 2xl:7" responsive="screen">
       <n-grid-item class="m-1 p-1" v-for="(item, index) in items" :key="index">
-        <PasswordCard :title="item" @click="showModal(index)" :color="randomColor()"/>
+        <PasswordCard :password="item" @click="showModal(index)" :color="randomColor()" />
       </n-grid-item>
     </n-grid>
   </div>
@@ -24,10 +24,39 @@
 <script setup lang="ts">
 import { defineComponent, Ref, ref } from "vue";
 import PasswordCard from "@/components/PasswordCard.vue";
+import { IPassword } from "@/models/password";
+
+defineComponent({
+  name: "Home"
+})
 
 let showPassword: Ref<boolean> = ref(false);
 let title: Ref<string> = ref('')
-const items: string[] = ['Facebook', 'Twitter']
+const items: IPassword[] = [{
+  url: 'www.facebook.com',
+  icon: 'https://www.pinclipart.com/picdir/middle/414-4146033_like-us-on-facebook-at-www-find-us.png',
+  name: 'Facebook',
+  folder: 'social',
+  username: 'username',
+  password: 'password'
+},
+{
+  url: 'www.twitter.com',
+  icon: 'https://www.canaljesustv.com/wp-content/uploads/2016/06/twitter-round-logo-png-transparent-background-7.png',
+  name: 'Twitter',
+  folder: 'social',
+  username: 'username',
+  password: 'password'
+},
+{
+  url: 'www.instagram.com',
+  icon: 'https://www.pngplay.com/wp-content/uploads/1/Round-Instagram-Logo-PNG-HD-Quality.png',
+  name: 'Instagram',
+  folder: 'social',
+  username: 'username',
+  password: 'password'
+}
+]
 const colors: string[] = ['#686868', '#707070', '#787878', '#808080']
 
 const segmented = {
@@ -42,11 +71,7 @@ const randomColor = () => colors[Math.floor(Math.random() * colors.length)]
 
 const showModal = (index: number) => {
   showPassword.value = !showPassword.value
-  title.value = items[index]
+  title.value = items[index].name
 }
-
-defineComponent({
-  name: "Home"
-})
 
 </script>
