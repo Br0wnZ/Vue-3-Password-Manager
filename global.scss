@@ -1,8 +1,15 @@
 $background-color: #ededed2e;
 $font-color: white;
+$background-image: 'assets/images/background-image.jpg';
+
+html {
+  min-height: 100%;
+}
 
 body {
-  background-color: $background-color;
+  background-image: url($background-image);
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .n-tabs .n-tabs-rail .n-tabs-tab-wrapper .n-tabs-tab.n-tabs-tab--active {
@@ -23,6 +30,7 @@ body {
 
 #password-card > .n-card {
   box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+  color: $font-color;
 
   &:hover {
     transform: scale(1.01);
@@ -37,6 +45,8 @@ body {
 .n-card-header .n-card-header__main {
   color: $font-color;
 }
+
+
 
 .n-card--content-soft-segmented > .n-card-header > .n-card-header__main {
   color: $font-color;
